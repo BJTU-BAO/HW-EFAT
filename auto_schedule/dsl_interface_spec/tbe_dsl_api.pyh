@@ -1,0 +1,171 @@
+# source file:python/tbe/dsl/api.py
+
+def ceil(raw_tensor, dtype="int32"):
+
+def floor(raw_tensor, dtype="int32"):
+
+def round(raw_tensor, dtype="int32"):
+
+def trunc(raw_tensor, dtype="int32"):
+
+def round_half_up(raw_tensor, dtype="int32"):
+
+def cast_to(data, dtype, f1628IntegerFlag=True):
+
+def vadd(lhs, rhs):
+
+def vsub(lhs, rhs):
+
+def vmul(lhs, rhs):
+
+def vdiv(lhs, rhs):
+
+def vrec(raw_tensor, impl_mode="high_performance"):
+
+def vmod(lhs, rhs):
+
+def vmax(lhs, rhs):
+
+def vmin(lhs, rhs):
+
+def vlog(raw_tensor, impl_mode="high_performance"):
+
+def vexp(raw_tensor):
+
+def vabs(raw_tensor):
+
+def vsqrt(raw_tensor, impl_mode="high_performance"):
+
+def vrsqrt(raw_tensor, impl_mode="high_performance"):
+
+def vnot(raw_tensor):
+
+def vor(lhs, rhs):
+
+def vand(lhs, rhs):
+
+def vlogic(lhs, rhs=None, operation='logic_and'):
+
+def vadds(raw_tensor, scalar):
+
+def vmuls(raw_tensor, scalar):
+
+def vmaxs(raw_tensor, scalar):
+
+def vmins(raw_tensor, scalar):
+
+def vaxpy(lhs, rhs, scalar):
+
+def vmla(tensor_0, tensor_1, tensor_2):
+
+def vmadd(tensor_0, tensor_1, tensor_2):
+
+def vcmp(lhs, rhs, operation='lt', mode='bool'):
+
+def vsel(condition, lhs, rhs):
+
+def vcmpsel(lhs, rhs=None, operation='lt', slhs=None, srhs=None):
+
+def vmaddrelu(tensor_0, tensor_1, tensor_2):
+
+def vaddrelu(lhs, rhs):
+
+def vsubrelu(lhs, rhs):
+
+def vrelu(raw_tensor):
+
+def vlrelu(raw_tensor, alpha=0):
+
+def clip(data, max_value, min_value):
+
+def broadcast(var_, shape, output_dtype=None):
+
+def set_value(tensor, condition, value):
+
+def transpose(tensor, axes):
+
+def reduce_sum(raw_tensor, axis, keepdims=False):
+
+def reduce_min(raw_tensor, axis, keepdims=False, impl_mode="high_performance"):
+
+def reduce_max(raw_tensor, axis, keepdims=False, impl_mode="high_performance"):
+
+def reduce_prod(raw_tensor, axis, keepdims=False):
+
+def tuple_sum(input_tensors, axis, keepdims=False):
+
+def split(data, split_dim, size_splits):
+
+def concat(raw_tensors, axis):
+
+def inplace_add(lhs, inplace_ids, rhs):
+
+def inplace_sub(lhs, inplace_ids, rhs):
+
+def inplace_update(lhs, inplace_ids, rhs):
+
+def pooling2d(tensor_in, window, stride, pooling_mode, padding_mode="SAME", pad=(0, 0, 0, 0), dilation=(1, 1), data_mode=1, ceil_mode=0, fusion_params=None, impl_mode="high_performance"):
+
+def pooling3d(tensor_in, window, stride, padding_mode="SAME", pads=(0, 0, 0, 0, 0, 0), pooling_mode="MAX", dilation=(1, 1, 1), ceil_mode=0):
+
+def max_pooling3d_grad_grad(orig_input, orig_output, grad_grad, assist_tensor, ksize, strides, pads=(0, 0, 0, 0, 0, 0), data_format="NDHWC", padding="SAME"):
+
+def auto_schedule(outs, option=None):
+
+def build(sch, config_map=None):
+
+def classify(ins: list, mode: str, extra_params: Optional[Dict[str, Any]] = None):
+
+def var(name, bound=None, dtype="int32", addition=None):
+
+def var_attr(name, bound=None, dtype="int32", addition=None):
+
+def add_build_arg(key, value):
+
+def add_exclude_bound_var(var_):
+
+def compute(_operator=None):
+
+def schedule(_compute=None):
+
+def conv2d_backprop_filter(input_x, out_backprop, filter_sizes, para_dict):
+
+def conv2d_backprop_input(filters, out_backprop, filter_sizes, input_sizes, para_dict):
+
+def conv3d_backprop_filter(x, out_backprop, filter_size, para_dict):
+
+def conv3d_backprop_input(filter, out_backprop, filter_size, input_size, para_dict):
+
+def conv3d(x, filter, filter_size, para_dict):
+
+def depthwise_conv2d_backprop_filter(fmap, dout, kernel_h, kernel_w, stride, pad, dilations, w_dtype, kernel_name="depthwise_conv2d_compute"):
+
+def depthwise_conv2d_backprop_input(input_shape, weight, dout, weight_sizes, strides, pads, kernel_name="depthwise_conv2d_compute"):
+
+def dilation(tensor_x, dilations, pads=None, padding_value=0.0):
+
+def gemm(tensor_a, tensor_b, para_dict):
+
+def matmul(tensor_a, tensor_b, trans_a=False, trans_b=False, format_a="ND", format_b="ND", alpha_num=1.0, beta_num=1.0, dst_dtype="float16", tensor_bias=None, quantize_params=None, format_out=None, compress_index=None, attrs={}, kernel_name="MatMul"):
+
+def gather(params, indices, axis=None, batch_dims=0):
+
+def gather_nd(params, indices, batch_dims=0):
+
+def slice(tensor, begin, end, stride=None):
+
+def transdata(tensor, dst_shape, axes_map, pad_value=0):
+
+def conv(data, weight, para_dict, optim_dict=None, dsl_flag=True):
+
+def depthwise_conv2d(data, weight, para_dict, optim_dict=None, dsl_flag=True):
+
+def reduce_window(input_tensor, reduction, window_axes, window_dimensions, window_strides, window_dilations, padding_mode="SAME", padding_dimensions=None, rounding_mode="FLOOR", return_indices=False):
+
+def sort(tensor, sort_axis=-1, direction="ascend", return_type="value", indices_dtype=None):
+
+def topk(tensor, k, sort_axis=-1, direction="ascend", return_type="value", indices_dtype=None):
+
+def scatter(var, indices, update, reduction, scatter_axis=0, is_ref=True):
+
+def scatter_nd(var, indices, update, reduction, scatter_axis=0, is_ref=True):
